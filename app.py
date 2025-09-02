@@ -11,7 +11,7 @@ st.set_page_config(page_title="Retail Analytics Dashboard", page_icon="📊", la
 st.markdown("""
     <style>
         .main {
-            background-image: url("https://images.unsplash.com/photo-1605902711622-cfb43c4437d3?auto=format&fit=crop&w=1920&q=80");
+            background-image: url("https://images.unsplash.com/photo-1612831455543-9f4a7c3b7f1e?auto=format&fit=crop&w=1920&q=80");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -19,13 +19,13 @@ st.markdown("""
         }
 
         .block-container {
-            background-color: rgba(17, 24, 39, 0.85); /* Smooth dark overlay */
+            background-color: rgba(17, 24, 39, 0.85);
             padding: 2rem;
             border-radius: 12px;
         }
 
         html, body, [class*="css"] {
-            color: #e2e8f0 !important; /* Soft light text */
+            color: #e2e8f0 !important;
             font-family: 'Segoe UI', sans-serif;
         }
 
@@ -170,12 +170,4 @@ st.plotly_chart(fig_fun, use_container_width=True)
 
 # ------------------ FOOTER ------------------
 st.caption("Built with Streamlit + Plotly • Demo data, no external files required.")
-
-st.markdown("---")
-st.markdown("""
-**Built by Naresh Kumar**  
-📍 Chennai, India  
-📞 +91 80729 25243  
-🔗 [LinkedIn](https://www.linkedin.com/in/naresh-kumar-b67b0b326) | [GitHub](https://github.com/nareshkumar0910-wq)
-""")
 
