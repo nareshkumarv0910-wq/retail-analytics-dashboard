@@ -7,55 +7,14 @@ from datetime import date
 # ------------------ PAGE CONFIG ------------------
 st.set_page_config(page_title="Retail Analytics Dashboard", page_icon="📊", layout="wide")
 
-# ------------------ CUSTOM STYLING ------------------
+# ------------------ HEADER ------------------
+st.title("Retail Analytics Dashboard")
 st.markdown("""
-    <style>
-        .main {
-            background-image: url("https://images.unsplash.com/photo-1612831455543-9f4a7c3b7f1e?auto=format&fit=crop&w=1920&q=80");
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-        }
-
-        .block-container {
-            background-color: rgba(17, 24, 39, 0.85);
-            padding: 2rem;
-            border-radius: 12px;
-        }
-
-        html, body, [class*="css"] {
-            color: #e2e8f0 !important;
-            font-family: 'Segoe UI', sans-serif;
-        }
-
-        h1, h2, h3, h4, h5, h6, p, div, span, label {
-            color: #e2e8f0 !important;
-        }
-
-        .stMetric label, .stMetric div {
-            color: #e2e8f0 !important;
-        }
-
-        .sidebar .sidebar-content {
-            background-color: rgba(30, 41, 59, 0.95);
-        }
-
-        .stSelectbox label, .stDateInput label, .stMultiSelect label {
-            color: #e2e8f0 !important;
-        }
-    </style>
-""", unsafe_allow_html=True)
-
-# ------------------ BANNER ------------------
-st.markdown("""
-    <div style="background-color:#1e293b;padding:20px;border-radius:10px;text-align:center">
-        <h1 style="color:#e2e8f0;">Retail Analytics Dashboard</h1>
-        <p style="color:#cbd5e1;">Built by Naresh Kumar • 📍 Chennai • 📞 +91 80729 25243</p>
-        <p><a href="https://www.linkedin.com/in/naresh-kumar-b67b0b326" style="color:#93c5fd;">LinkedIn</a> | 
-           <a href="https://github.com/nareshkumar0910-wq" style="color:#93c5fd;">GitHub</a></p>
-    </div>
-""", unsafe_allow_html=True)
+**Built by Naresh Kumar**  
+📍 Chennai, India  
+📞 +91 80729 25243  
+🔗 [LinkedIn](https://www.linkedin.com/in/naresh-kumar-b67b0b326) | [GitHub](https://github.com/nareshkumar0910-wq)
+""")
 
 # ------------------ DATA GENERATION ------------------
 @st.cache_data
@@ -133,41 +92,27 @@ k4.metric("📈 MoM Growth", "—" if np.isnan(mom) else f"{mom:.1%}")
 
 # ------------------ CHARTS ------------------
 st.markdown("---")
-custom_colors = ['#60a5fa', '#38bdf8', '#0ea5e9', '#1e3a8a', '#64748b']
 
 c1, c2 = st.columns((2, 1))
 
 with c1:
     st.subheader("Sales Trend")
-    fig_trend = px.line(monthly, x="Month", y="Sales", markers=True, color_discrete_sequence=[custom_colors[3]])
-    fig_trend.update_traces(line=dict(width=3))
-    fig_trend.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+    fig_trend = px.line(monthly, x="Month", y="Sales", markers=True)
     st.plotly_chart(fig_trend, use_container_width=True)
 
 with c2:
     st.subheader("Segment Share")
     seg = df.groupby("Segment", as_index=False)["Sales"].sum()
-    fig_seg = px.pie(seg, names="Segment", values="Sales", color_discrete_sequence=custom_colors)
-    fig_seg.update_layout(paper_bgcolor='rgba(0,0,0,0)')
+    fig_seg = px.pie(seg, names="Segment", values="Sales")
     st.plotly_chart(fig_seg, use_container_width=True)
 
 st.subheader("Sales by Region")
 reg = df.groupby("Region", as_index=False)["Sales"].sum()
-fig_reg = px.bar(reg, x="Region", y="Sales", color="Region", text_auto=".2s", color_discrete_sequence=custom_colors)
-fig_reg.update_layout(showlegend=False, paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+fig_reg = px.bar(reg, x="Region", y="Sales", color="Region", text_auto=".2s")
+fig_reg.update_layout(showlegend=False)
 st.plotly_chart(fig_reg, use_container_width=True)
 
 st.subheader("Conversion Funnel")
 funnel_df = pd.DataFrame({"Stage": ["Visitors", "Leads", "Purchases"], "Count": [visitors, leads, purchases]})
-fig_fun = px.funnel(funnel_df, x="Count", y="Stage", color_discrete_sequence=[custom_colors[0]])
-fig_fun.update_layout(paper_bgcolor='rgba(0,0,0,0)')
+fig_fun = px.funnel(funnel_df, x="Count", y="Stage")
 st.plotly_chart(fig_fun, use_container_width=True)
-
-# ------------------ FOOTER ------------------
-st.markdown("""
-**Built by Naresh Kumar**  
-📍 Chennai, India  
-📞 +91 80729 25243  
-🔗 [LinkedIn](https://www.linkedin.com/in/naresh-kumar-b67b0b326) | [GitHub](https://github.com/nareshkumar0910-wq)
-""")
-
