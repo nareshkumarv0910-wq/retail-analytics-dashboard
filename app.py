@@ -22,19 +22,26 @@ st.markdown("""
             background-color: rgba(10, 15, 28, 0.85);
             padding: 2rem;
             border-radius: 12px;
-            color: #f1f5f9; /* Light text */
         }
 
-        h1, h2, h3, h4, h5, h6, p, div, span {
+        html, body, [class*="css"] {
+            color: #f1f5f9 !important;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .stMarkdown, .stText, .stCaption, .stMetric label, .stMetric div {
             color: #f1f5f9 !important;
         }
 
-        .stMetric label, .stMetric div {
+        .sidebar .sidebar-content {
+            background-color: rgba(10, 15, 28, 0.9);
+        }
+
+        .stSelectbox label, .stDateInput label, .stMultiSelect label {
             color: #f1f5f9 !important;
         }
     </style>
 """, unsafe_allow_html=True)
-
 
 # ------------------ HEADER ------------------
 st.title("Retail Analytics Dashboard")
@@ -150,3 +157,12 @@ st.plotly_chart(fig_fun, use_container_width=True)
 
 # ------------------ FOOTER ------------------
 st.caption("Built with Streamlit + Plotly • Demo data, no external files required.")
+
+st.markdown("---")
+st.markdown("""
+**Built by Naresh Kumar**  
+📍 Chennai, India  
+📞 +91 80729 25243  
+🔗 [LinkedIn](https://www.linkedin.com/in/naresh-kumar-b67b0b326) | [GitHub](https://github.com/nareshkumar0910-wq)
+""")
+
