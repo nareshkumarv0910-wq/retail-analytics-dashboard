@@ -46,7 +46,6 @@ st.markdown("""
         }
     </style>
 """, unsafe_allow_html=True)
-
 st.markdown("""
     <div style="background-color:#1e293b;padding:20px;border-radius:10px;text-align:center">
         <h1 style="color:#e2e8f0;">Retail Analytics Dashboard</h1>
