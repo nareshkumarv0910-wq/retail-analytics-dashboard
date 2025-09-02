@@ -164,9 +164,10 @@ fig_fun.update_layout(paper_bgcolor='rgba(0,0,0,0)')
 st.plotly_chart(fig_fun, use_container_width=True)
 
 # ------------------ FOOTER ------------------
-st.markdown("---")
 st.markdown("""
 **Built by Naresh Kumar**  
 📍 Chennai, India  
 📞 +91 80729 25243  
-🔗 [LinkedIn](https://www.linkedin.com/in/naresh-kumar
+🔗 [LinkedIn](https://www.linkedin.com/in/naresh-kumar-b67b0b326) | [GitHub](https://github.com/nareshkumar0910-wq)
+""")
+
