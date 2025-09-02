@@ -7,7 +7,7 @@ from datetime import date
 # ------------------ PAGE CONFIG ------------------
 st.set_page_config(page_title="Retail Analytics Dashboard", page_icon="📊", layout="wide")
 
-# ------------------ BACKGROUND IMAGE ------------------
+# ------------------ CUSTOM STYLING ------------------
 st.markdown("""
     <style>
         .main {
@@ -46,6 +46,8 @@ st.markdown("""
         }
     </style>
 """, unsafe_allow_html=True)
+
+# ------------------ BANNER ------------------
 st.markdown("""
     <div style="background-color:#1e293b;padding:20px;border-radius:10px;text-align:center">
         <h1 style="color:#e2e8f0;">Retail Analytics Dashboard</h1>
@@ -54,10 +56,6 @@ st.markdown("""
            <a href="https://github.com/nareshkumar0910-wq" style="color:#93c5fd;">GitHub</a></p>
     </div>
 """, unsafe_allow_html=True)
-
-# ------------------ HEADER ------------------
-st.title("Retail Analytics Dashboard")
-st.caption("Interactive sales insights with KPIs, trends, segments, funnel, and top products.")
 
 # ------------------ DATA GENERATION ------------------
 @st.cache_data
@@ -77,7 +75,6 @@ def load_data(n_rows=3000, seed=42):
         "Discount": np.round(rng.uniform(0, 0.35, size=n_rows), 2)
     })
 
-    # Synthetic sales/profit logic
     base = rng.gamma(shape=2.1, scale=130, size=n_rows)
     df["Sales"] = np.round(base * (1 - df["Discount"]) + df["Quantity"] * 25, 2)
     margin = 0.24 - (df["Discount"] * 0.45)
@@ -124,7 +121,6 @@ mom = (
     if len(monthly) >= 2 else np.nan
 )
 
-# Simple funnel from orders
 purchases = max(orders, 1)
 leads = int(purchases * 3.5)
 visitors = int(leads * 3.0)
@@ -168,5 +164,9 @@ fig_fun.update_layout(paper_bgcolor='rgba(0,0,0,0)')
 st.plotly_chart(fig_fun, use_container_width=True)
 
 # ------------------ FOOTER ------------------
-st.caption("Built with Streamlit + Plotly • Demo data, no external files required.")
-
+st.markdown("---")
+st.markdown("""
+**Built by Naresh Kumar**  
+📍 Chennai, India  
+📞 +91 80729 25243  
+🔗 [LinkedIn](https://www.linkedin.com/in/naresh-kumar
