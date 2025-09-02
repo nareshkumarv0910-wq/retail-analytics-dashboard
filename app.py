@@ -11,7 +11,7 @@ st.set_page_config(page_title="Retail Analytics Dashboard", page_icon="📊", la
 st.markdown("""
     <style>
         .main {
-            background-image: url("https://images.unsplash.com/photo-1612832021046-0c5f7e3e5f4e?auto=format&fit=crop&w=1920&q=80");
+            background-image: url("https://images.unsplash.com/photo-1605902711622-cfb43c4437d3?auto=format&fit=crop&w=1920&q=80");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -19,28 +19,41 @@ st.markdown("""
         }
 
         .block-container {
-            background-color: rgba(10, 15, 28, 0.85);
+            background-color: rgba(17, 24, 39, 0.85); /* Smooth dark overlay */
             padding: 2rem;
             border-radius: 12px;
         }
 
         html, body, [class*="css"] {
-            color: #f1f5f9 !important;
+            color: #e2e8f0 !important; /* Soft light text */
             font-family: 'Segoe UI', sans-serif;
         }
 
-        .stMarkdown, .stText, .stCaption, .stMetric label, .stMetric div {
-            color: #f1f5f9 !important;
+        h1, h2, h3, h4, h5, h6, p, div, span, label {
+            color: #e2e8f0 !important;
+        }
+
+        .stMetric label, .stMetric div {
+            color: #e2e8f0 !important;
         }
 
         .sidebar .sidebar-content {
-            background-color: rgba(10, 15, 28, 0.9);
+            background-color: rgba(30, 41, 59, 0.95);
         }
 
         .stSelectbox label, .stDateInput label, .stMultiSelect label {
-            color: #f1f5f9 !important;
+            color: #e2e8f0 !important;
         }
     </style>
+""", unsafe_allow_html=True)
+
+st.markdown("""
+    <div style="background-color:#1e293b;padding:20px;border-radius:10px;text-align:center">
+        <h1 style="color:#e2e8f0;">Retail Analytics Dashboard</h1>
+        <p style="color:#cbd5e1;">Built by Naresh Kumar • 📍 Chennai • 📞 +91 80729 25243</p>
+        <p><a href="https://www.linkedin.com/in/naresh-kumar-b67b0b326" style="color:#93c5fd;">LinkedIn</a> | 
+           <a href="https://github.com/nareshkumar0910-wq" style="color:#93c5fd;">GitHub</a></p>
+    </div>
 """, unsafe_allow_html=True)
 
 # ------------------ HEADER ------------------
