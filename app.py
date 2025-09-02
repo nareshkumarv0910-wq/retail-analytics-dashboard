@@ -22,9 +22,19 @@ st.markdown("""
             background-color: rgba(10, 15, 28, 0.85);
             padding: 2rem;
             border-radius: 12px;
+            color: #f1f5f9; /* Light text */
+        }
+
+        h1, h2, h3, h4, h5, h6, p, div, span {
+            color: #f1f5f9 !important;
+        }
+
+        .stMetric label, .stMetric div {
+            color: #f1f5f9 !important;
         }
     </style>
 """, unsafe_allow_html=True)
+
 
 # ------------------ HEADER ------------------
 st.title("Retail Analytics Dashboard")
